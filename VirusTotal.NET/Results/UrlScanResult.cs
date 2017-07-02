@@ -1,0 +1,42 @@
+using System;
+using Newtonsoft.Json;
+using VirusTotalNET.ResponseCodes;
+
+namespace VirusTotalNET.Results
+{
+    public class UrlScanResult
+    {
+        public string Url { get; set; }
+
+        [JsonProperty("scan_date")]
+        public DateTime ScanDate { get; set; }
+
+        /// <summary>
+        /// A unique link to this particular scan result.
+        /// </summary>
+        public string Permalink { get; set; }
+
+        /// <summary>
+        /// Id of the resource.
+        /// </summary>
+        public string Resource { get; set; }
+
+        /// <summary>
+        /// The scan response code. Use this to determine the status of the scan.
+        /// </summary>
+        [JsonProperty("response_code")]
+        public ScanResponseCode ResponseCode { get; set; }
+
+        /// <summary>
+        /// The unique scan id of the resource.
+        /// </summary>
+        [JsonProperty("scan_id")]
+        public string ScanId { get; set; }
+
+        /// <summary>
+        /// Contains a verbose message that corrosponds to the reponse code.
+        /// </summary>
+        [JsonProperty("verbose_msg")]
+        public string VerboseMsg { get; set; }
+    }
+}
